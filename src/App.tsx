@@ -4,10 +4,30 @@ import { CardSkeleton } from "./components/CardSkeleton";
 import { EmptyState } from "./components/EmptyState";
 import { Header } from "./components/Header";
 import { useQuery } from "./hooks/useQuery";
-import { getContent } from "./utils/content";
+import { getContent, type ContentType } from "./utils/content";
+import { useQueryParam } from "./hooks/useQueryParam";
+import { useDebouncer } from "./hooks/useDebouncer";
+import { useMemo } from "react";
 
 function App() {
+	const [search] = useQueryParam("search");
+	const debouncedSearch = useDebouncer(search, 300);
+
 	const { data: content, isLoading } = useQuery(["content"], getContent);
+
+	const filteredContent = useMemo(() => {
+		const query = debouncedSearch?.trim().toLowerCase();
+
+		if (!query) {
+			return content;
+		}
+
+		return content?.filter((item: ContentType) => {
+			return [item.title, item.text].some((value) =>
+				value.toLowerCase().includes(query),
+			);
+		});
+	}, [content, debouncedSearch]);
 
 	return (
 		<div className="pt-(--height-header)">
@@ -20,8 +40,8 @@ function App() {
 					"gap-8 laptop:gap-y-19.5 laptop:gap-x-10",
 				)}
 			>
-				{content?.length ? (
-					content.map((item, index) => <Card data={item} key={index} />)
+				{filteredContent?.length ? (
+					filteredContent.map((item, index) => <Card data={item} key={index} />)
 				) : isLoading ? (
 					new Array(5)
 						.fill(null)

@@ -48,6 +48,7 @@ const MENU_ITEMS: MenuItemType[] = [
 
 export function Header() {
 	const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+	const [searchOpen, setSearchOpen] = useState(false);
 
 	return (
 		<>
@@ -64,10 +65,18 @@ export function Header() {
 							changeMobileMenuState={() => setMobileMenuOpen((v) => !v)}
 						/>
 					</div>
-					<div className="absolute left-1/2 -translate-x-1/2">
+					<div
+						className={clsx(
+							searchOpen
+								? "max-tablet:opacity-0 max-tablet:pointer-events-none"
+								: "opacity-100",
+							"absolute left-1/2 -translate-x-1/2",
+							"transition-opacity duration-150",
+						)}
+					>
 						<Logo />
 					</div>
-					<Search />
+					<Search isOpen={searchOpen} setIsOpen={setSearchOpen} />
 				</div>
 			</header>
 			<nav
