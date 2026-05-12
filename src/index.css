@@ -14,6 +14,26 @@ body {
 	margin: 0;
 }
 
+@theme static {
+	--color-primary: #000000;
+	--color-secondary: #9b9b9b;
+	--color-paragraph: #929292;
+
+	--color-red: #eb0028;
+	--color-grey-light: #d7d7d7;
+
+	--text-small: 0.75rem;
+	--text-small--line-height: 0.75rem;
+	--text-medium: 0.8125rem;
+	--text-medium--line-height: 0.8125rem;
+	--text-normal: 0.875rem;
+	--text-normal--line-height: 1.25rem;
+	--text-large: 1rem;
+	--text-large--line-height: 1rem;
+	--text-xlarge: 1.5rem;
+	--text-xlarge--line-height: 1.875rem;
+}
+
 @theme inline {
 	--breakpoint-tablet: 768px;
 	--breakpoint-laptop: 1240px;
@@ -27,4 +47,15 @@ body {
 	--font-weight-700: 700;
 	--font-weight-800: 800;
 	--font-weight-900: 900;
+}
+
+::-webkit-scrollbar {
+	background: transparent;
+	width: 5px;
+	height: 5px;
+}
+
+::-webkit-scrollbar-thumb {
+	border-radius: 9999px;
+	background: #a5a6a1;
 }

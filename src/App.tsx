@@ -15,7 +15,7 @@ function App() {
 
 			<main
 				className={clsx(
-					"max-w-290 max-laptop:px-4 py-4 laptop:py-12",
+					"max-w-290 max-laptop:px-4 py-4 laptop:py-12 laptop:mx-auto",
 					"grid grid-cols-1 tablet:grid-cols-2 laptop:grid-cols-3",
 					"gap-8 laptop:gap-y-19.5 laptop:gap-x-10",
 				)}
