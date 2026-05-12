@@ -59,3 +59,45 @@ body {
 	border-radius: 9999px;
 	background: #a5a6a1;
 }
+
+dialog[popover] {
+	border: none;
+	padding: 0;
+	opacity: 0;
+	transform: translateY(12px);
+	transition:
+		opacity 0.25s ease,
+		transform 0.25s ease,
+		display 0.25s allow-discrete,
+		overlay 0.25s allow-discrete;
+}
+
+dialog[popover]:popover-open {
+	opacity: 1;
+	transform: translateY(0);
+}
+
+@starting-style {
+	dialog[popover]:popover-open {
+		opacity: 0;
+		transform: translateY(12px);
+	}
+}
+
+dialog[popover]::backdrop {
+	background: transparent;
+	transition:
+		background 0.25s ease,
+		display 0.25s allow-discrete,
+		overlay 0.25s allow-discrete;
+}
+
+dialog[popover]:popover-open::backdrop {
+	background: rgba(0, 0, 0, 0.45);
+}
+
+@starting-style {
+	dialog[popover]:popover-open::backdrop {
+		background: transparent;
+	}
+}
