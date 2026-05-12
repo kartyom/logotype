@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { BurgerButton } from "./BurgerButton";
+import { Logo } from "./Logo";
 
 export function Header() {
 	const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -10,6 +11,7 @@ export function Header() {
 
 	return (
 		<header className="">
+			<Logo />
 			<BurgerButton
 				isMobileMenuOpen={mobileMenuOpen}
 				changeMobileMenuState={changeMobileMenuState}
