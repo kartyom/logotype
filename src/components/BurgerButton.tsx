@@ -10,7 +10,7 @@ export function BurgerButton(props: Props) {
 		<button
 			onClick={props.changeMobileMenuState}
 			className={clsx(
-				"self-center mr-auto ml-5 w-6 h-6",
+				"self-center mr-auto w-6 h-6",
 				"relative flex items-center justify-center",
 			)}
 		>

@@ -13,7 +13,7 @@ export function Card(props: Props) {
 	return (
 		<>
 			<button
-				className="flex flex-col gap-4 items-start"
+				className="flex flex-col gap-4 items-start cursor-pointer"
 				popoverTarget={dialogId}
 			>
 				<img

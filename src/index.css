@@ -16,11 +16,13 @@ body {
 
 @theme static {
 	--color-primary: #000000;
+	--color-primary-hover: #969696;
 	--color-secondary: #9b9b9b;
 	--color-paragraph: #929292;
-
 	--color-red: #eb0028;
 	--color-grey-light: #d7d7d7;
+	--color-stroke: #e9e9e9;
+	--color-background: #ffffff;
 
 	--text-small: 0.75rem;
 	--text-small--line-height: 0.75rem;
@@ -35,8 +37,11 @@ body {
 }
 
 @theme inline {
-	--breakpoint-tablet: 768px;
-	--breakpoint-laptop: 1240px;
+	--breakpoint-tablet: 48rem;
+	--breakpoint-laptop: 77.5rem;
+
+	--height-header: 5rem;
+	--height-subheader: 3.5rem;
 
 	--font-weight-100: 100;
 	--font-weight-200: 200;
@@ -99,5 +104,15 @@ dialog[popover]:popover-open::backdrop {
 @starting-style {
 	dialog[popover]:popover-open::backdrop {
 		background: transparent;
+	}
+}
+
+@keyframes hide-nav {
+	from {
+		transform: translateY(0);
+	}
+
+	to {
+		transform: translateY(calc(-1 * var(--height-subheader)));
 	}
 }
